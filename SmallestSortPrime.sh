@@ -1,5 +1,5 @@
 #!/bin/bash -x
-
+#Generates 10 Random 3 Digit number
 
 
 
