@@ -1,12 +1,13 @@
 #!/bin/bash -x
-# c. Then find the 2nd largest and the 2nd smallest element without sorting the array.
+#Extend the above program to sort the array and then find the 2nd largest
+#and the 2nd smallest element.
 
 for (( cnt=0; $cnt<10; cnt=$((cnt+1))))
 do
         Random_Values[$cnt]=$(($((RANDOM%900))+100));
 	
 done
-
+echo "Array without sort"
 echo ${Random_Values[*]}
 
 Max=${Random_Values[0]}
@@ -24,6 +25,26 @@ do
         fi
 
 done
+
+# This loop to sort the array
+
+for (( iCnt=0; $iCnt<10; iCnt=$((iCnt+1))))
+do
+	for (( jCnt=0;jCnt<9;jCnt++ ))
+	do
+
+	
+	if (( ${Random_Values[$jCnt]} > ${Random_Values[$((jCnt+1))]} ))
+	then
+		temp=${Random_Values[$jCnt]}
+		Random_Values[$jCnt]=${Random_Values[$((jCnt+1))]}
+		Random_Values[$((jCnt+1))]=$temp
+		
+	fi
+	done
+done
+echo "array with sort"
+echo ${Random_Values[*]}
 
 Max2=$Min
 Min2=$Max
